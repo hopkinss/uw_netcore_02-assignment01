@@ -12,11 +12,7 @@ namespace Assignment01
     {
         private string userName;
         private string passWord;
-        private bool isSubmitEnabled;
         private string submitMsg;
-
-
-
 
         public MainViewModel()
         {
@@ -42,15 +38,7 @@ namespace Assignment01
                 ((DelegateCommand)SubmitCommand).RaiseCanExecuteChanged();
             }
         }
-        public bool IsSubmitEnabled
-        {
-            get { return isSubmitEnabled; }
-            set
-            {
-                isSubmitEnabled = value;
-                OnPropertyChanged();
-            }
-        }
+
         public string SubmitMsg
         {
             get { return submitMsg; }
@@ -67,8 +55,8 @@ namespace Assignment01
 
         private bool CanSubmit()
         {
-            IsSubmitEnabled = (!string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(PassWord));
-            return IsSubmitEnabled;
+            return (!string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(PassWord));
+
         }
 
         public ICommand SubmitCommand { get; }
